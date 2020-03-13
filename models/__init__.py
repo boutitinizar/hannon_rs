@@ -1,3 +1,4 @@
 # -*- coding: utf-8 -*-
 
-from . import models
+from . import hn_account_invoice
+from . import hn_account_account
