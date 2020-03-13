@@ -1,0 +1,31 @@
+<odoo>
+    <template id="ks_global_discount_invoice_report" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[@id='total']/div/table/tr[last()]" position="before">
+            <t t-if="o.ks_amount_discount>0">
+                  <tr>
+                    <td>
+                        <strong>Sous-Total TTC</strong>
+                    </td>
+                    <td class="text-right">
+                        <span t-field="o.ks_sub_total"
+                              t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>RS </span>
+                        <t t-if="o.ks_global_discount_type == 'percent'">
+                            (<span t-field="o.ks_global_discount_rate"/>%)
+                        </t>
+                    </td>
+                    <td class="text-right">
+                        <span t-field="o.ks_amount_discount"
+                              t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                    </td>
+                </tr>
+            </t>
+        </xpath>
+    </template>
+
+
+</odoo>
